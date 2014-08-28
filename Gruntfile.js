@@ -20,8 +20,8 @@ module.exports = function(grunt) {
 		// Concat definitions
 		concat: {
 			dist: {
-				src: ["src/jquery.boilerplate.js"],
-				dest: "dist/jquery.boilerplate.js"
+				src: ["src/jquery.fn.preFetchReadMore.js"],
+				dest: "dist/jquery.fn.preFetchReadMore.js"
 			},
 			options: {
 				banner: "<%= meta.banner %>"
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 
 		// Lint definitions
 		jshint: {
-			files: ["src/jquery.boilerplate.js"],
+			files: ["src/jquery.fn.preFetchReadMore.js"],
 			options: {
 				jshintrc: ".jshintrc"
 			}
@@ -39,8 +39,8 @@ module.exports = function(grunt) {
 		// Minify definitions
 		uglify: {
 			my_target: {
-				src: ["dist/jquery.boilerplate.js"],
-				dest: "dist/jquery.boilerplate.min.js"
+				src: ["dist/jquery.fn.preFetchReadMore.js"],
+				dest: "dist/jquery.fn.preFetchReadMore.min.js"
 			},
 			options: {
 				banner: "<%= meta.banner %>"
@@ -51,7 +51,7 @@ module.exports = function(grunt) {
 		coffee: {
 			compile: {
 				files: {
-					"dist/jquery.boilerplate.js": "src/jquery.boilerplate.coffee"
+					"dist/jquery.fn.preFetchReadMore.js": "src/jquery.fn.preFetchReadMore.coffee"
 				}
 			}
 		}
@@ -64,6 +64,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-contrib-coffee");
 
 	grunt.registerTask("default", ["jshint", "concat", "uglify"]);
+	grunt.registerTask('build', ['concat', 'uglify']);
 	grunt.registerTask("travis", ["jshint"]);
 
 };

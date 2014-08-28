@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>jQuery fn preFetchReadMore Plugin</title>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-		<script src="../dist/jquery.fn.preFetchReadMore.js"></script>
-	</head>
-	<body>
-		<script>
+<head>
+<title>jQuery fn preFetchReadMore Plugin</title>
+</head>
+<body>
 
-		</script>
-	</body>
+<div class="simple-list">
+  <a href="#">
+    <img src="http://a0.twimg.com/sticky/default_profile_images/default_profile_1_normal.png" alt=" ">
+    <span class="m-tilte">2012/10/08-03:00 東京都千代田区神田小川町の現在の放射線量は0.098μSv/hです。</span>
+    <br clear="all">
+    <span class="m-act1">chiyodaku_rad</span>
+    <span class="m-act2">2012-10-08T03:00:01Z</span>
+  </a>
+</div>
+
+<div id="target"></div>
+<button id="readMore">readMore</button>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="../dist/jquery.fn.preFetchReadMore.js"></script>
+<script>
+$(function() {
+  $('#readMore').preFetchReadMore({
+    'url': 'demo/sample_data1.html',
+    'target': '#target',
+    'completeBefore': function(self) {
+      console.log(1);
+    }
+  });
+});
+</script>
+</body>
 </html>
