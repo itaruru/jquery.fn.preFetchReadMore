@@ -21,7 +21,6 @@
     , $self      = null
     , $target    = null
     , $loading   = null
-  	, next       = 2    // TODO: is require parameter? altnative to url paramter from option.
     , fetch_data = ''
     , is_error   = false
 	;
@@ -67,7 +66,6 @@
       $.ajax(ajax_options(options, {
         success: function(data, dataType) {
           $target.append(data);
-          next += 1;
         }
       }));
     } else {
@@ -79,7 +77,6 @@
     $.ajax(ajax_options(options, {
       success: function(data, dataType) {
         fetch_data = data;
-        next += 1;
       }
     }));
   }
@@ -112,12 +109,10 @@
       $loading = loadingImg($self);
 
       if (options['pre_fetch'] === true) {
-        options = $.extend(options, {next: next});
         preFetchCallData(options);
       }
 
       $self.on('click', function(event) {
-        options = $.extend(options, {next: next});
         callData(options);
         if (options['pre_fetch'] === true) {
           preFetchCallData(options);
